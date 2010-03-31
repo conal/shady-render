@@ -21,10 +21,9 @@ build-type:          Simple
 Library
   hs-Source-Dirs:      src
 
-  Extensions:
   Build-Depends:       base >=4 && < 5, mtl, vector-space>=0.5.6
-                     , shady-gen
                      , OpenGL>=2.4.0.1, GLUT, glew, time, array
+                     , shady-gen
 
   Exposed-Modules:
                        Shady.Uniform
@@ -36,11 +35,6 @@ Library
                        Shady.Run
                        Shady.RunSurface
                        Shady.RunImage
-
--- Gtk-based guis.  Move to new shady-tv project
---                        Shady.MechanicsGLGtk
---                        Shady.RunUI
-
 
 -- For examples, see examples/shady-examples.cabal in shady-gen
 -- TODO: divide up shady-examples so I can generate code from one part and

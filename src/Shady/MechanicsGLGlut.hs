@@ -12,9 +12,7 @@
 -- Some utilities for shader generation
 ----------------------------------------------------------------------
 
-module Shady.MechanicsGLGlut
-  (shadyInit, timedCallback, guiLoop)
-  where
+module Shady.MechanicsGLGlut (shadyInit) where
 
 
 import Graphics.Rendering.OpenGL hiding (Shader,Program,Index,Sink)
@@ -67,9 +65,27 @@ shadyInit title =
      catch (actionOnWindowClose $= MainLoopReturns)
            (const (return ()))
      putStrLn "finished shadyInit"
-     return display
+     return $ timedDisplay . display
 
-display :: IO () -> IO ()
+-- From MechanicsGLGtk (in shady-tv)
+
+-- timedDisplay :: Gtk.Window -> GtkGL.GLDrawingArea -> Action -> IO ()
+-- timedDisplay window canvas render = 
+--   do timeout <- Gtk.timeoutAddFull (display canvas render >> return True)
+--                                    Gtk.priorityDefaultIdle period
+--      Gtk.onDestroy window (Gtk.timeoutRemove timeout >> Gtk.mainQuit)
+--      Gtk.mainGUI
+--  where
+--    period = 1000 `div` 60   -- milliseconds
+
+timedDisplay :: Sink Action
+timedDisplay disp =
+  do timedCallback period disp
+     mainLoop
+ where
+  period = 1000 `div` 60   -- milliseconds
+
+display :: Sink Action
 display render =
   do clear [ColorBuffer, DepthBuffer]
      render
@@ -78,13 +94,11 @@ display render =
      -- flush
      swapBuffers
 
-
-timedCallback :: Int -> IO () -> IO ()
+timedCallback :: Int -> Sink Action
 timedCallback ms act = loop
  where
    loop = addTimerCallback ms (act >> loop)
 
--- idleCallback $= Just act
-
-guiLoop :: IO ()
-guiLoop = mainLoop
+-- Alternatively:
+-- 
+--   idleCallback $= Just act

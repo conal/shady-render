@@ -14,11 +14,7 @@
 -- Assemble shaders and display an image
 ----------------------------------------------------------------------
 
-module Shady.RunSurface
-  ( EyePosE, FullSurf, SurfB
-  -- * unused but exported to suppress "unused" warning
-  , runSurfB, runSurfB'
-  ) where
+module Shady.RunSurface (runSurfB, runSurfB') where
 
 -- TODO: trim exports
 
