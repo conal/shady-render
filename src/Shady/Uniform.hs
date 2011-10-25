@@ -22,14 +22,14 @@ import Control.Monad.State
 import Graphics.Rendering.OpenGL (GLint,GLfloat,GLenum)
 import Graphics.Glew
 
+import TypeNat.Vec hiding (get)
+
 import Shady.Misc (Sink,(>+>))
 import Shady.Language.Type (Type(..),VectorT(..),ScalarT(..),Sampler(..))
 import Shady.Language.Exp (Pat,V(..))
 import Shady.Language.Glom (Glom(..))
 import Shady.MechanicsGL
   (GlLoc,GlProgram,GlTextureType,GlTextureUnit,uniformLoc)
-
-import Shady.Vec hiding (get)
 
 
 -- TODO: take care about missing uniforms.  What does the error look like?

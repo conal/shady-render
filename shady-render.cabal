@@ -1,5 +1,5 @@
 Name:                shady-render
-Version:             0.5.0
+Version:             0.5.1
 Cabal-Version:       >= 1.2
 Synopsis:            Functional GPU programming - rendering
 Category:            Graphics, GPU
@@ -23,7 +23,7 @@ Library
 
   Build-Depends:       base >=4 && < 5, mtl, vector-space>=0.5.6
                      , OpenGL>=2.4.0.1, GLUT, glew, time, array
-                     , shady-gen, shady-graphics
+                     , shady-gen, shady-graphics, type-nat
 
   Exposed-Modules:
                        Shady.Uniform

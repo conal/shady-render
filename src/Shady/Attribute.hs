@@ -37,7 +37,8 @@ import Control.Applicative (liftA2)
 
 import Shady.MechanicsGL hiding (Attributes, mkAttribute)
 
-import Shady.Vec (natToZ)
+import TypeNat.Vec (natToZ)
+
 import Shady.Language.Type (VectorT(..),Type(..))
 import Shady.Language.Glom (Glom(..))
 import Shady.Uniform (sType)

@@ -23,10 +23,11 @@ import Control.Applicative ((<$>),liftA2)
 
 import Data.Time (getCurrentTime,utctDayTime)
 
+import qualified TypeNat.Vec as V
+
 import Shady.MechanicsGL (GlIndex)
 import Shady.Language.Exp hiding (indices)
 import Shady.Misc (Sink,Action)
-import qualified Shady.Vec as V
 
 
 -- GLUT Timer callbacks are one-shot, so re-register each time.  We can re-register
