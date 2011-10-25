@@ -28,7 +28,7 @@ import Data.Derivative (pureD)
 
 import Text.PrettyPrint.Leijen.DocExpr (HasExpr)
 
-import qualified TypeNat.Vec as V
+import qualified TypeUnary.Vec as V
 
 import Shady.Language.Exp hiding (indices)
 import Shady.Misc (Sink,Action)

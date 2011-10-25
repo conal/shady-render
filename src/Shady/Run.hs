@@ -23,7 +23,7 @@ import Control.Applicative ((<$>),liftA2)
 
 import Data.Time (getCurrentTime,utctDayTime)
 
-import qualified TypeNat.Vec as V
+import qualified TypeUnary.Vec as V
 
 import Shady.MechanicsGL (GlIndex)
 import Shady.Language.Exp hiding (indices)

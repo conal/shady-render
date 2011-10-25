@@ -23,7 +23,7 @@ Library
 
   Build-Depends:       base >=4 && < 5, mtl, vector-space>=0.5.6
                      , OpenGL>=2.4.0.1, GLUT, glew, time, array
-                     , shady-gen, shady-graphics, type-nat
+                     , shady-gen, shady-graphics, type-unary
 
   Exposed-Modules:
                        Shady.Uniform

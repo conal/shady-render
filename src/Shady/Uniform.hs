@@ -22,7 +22,7 @@ import Control.Monad.State
 import Graphics.Rendering.OpenGL (GLint,GLfloat,GLenum)
 import Graphics.Glew
 
-import TypeNat.Vec hiding (get)
+import TypeUnary.Vec hiding (get)
 
 import Shady.Misc (Sink,(>+>))
 import Shady.Language.Type (Type(..),VectorT(..),ScalarT(..),Sampler(..))
@@ -90,20 +90,20 @@ textureTy n = error $ "textureTy: dimension out of range: " ++ show n
 --------------------------------------------------------------------}
 
 set1 :: (a -> gla) -> (GlLoc -> gla -> IO ())
-      -> GlLoc -> One a -> IO ()
+      -> GlLoc -> Vec1 a -> IO ()
 set1 from set l w = set l (from (un1 w))
 
 set2 :: (a -> gla) -> (GlLoc -> gla -> gla -> IO ())
-      -> GlLoc -> Two a -> IO ()
+      -> GlLoc -> Vec2 a -> IO ()
 set2 from set l w = set l (from a) (from b) where (a,b) = un2 w
 
 set3 :: (a -> gla) -> (GlLoc -> gla -> gla -> gla -> IO ())
-      -> GlLoc -> Three a -> IO ()
+      -> GlLoc -> Vec3 a -> IO ()
 set3 from set l w = set l (from a) (from b) (from c)
   where (a,b,c) = un3 w
 
 set4 :: (a -> gla) -> (GlLoc -> gla -> gla -> gla -> gla -> IO ())
-      -> GlLoc -> Four a -> IO ()
+      -> GlLoc -> Vec4 a -> IO ()
 set4 from set l w = set l (from a) (from b) (from c) (from d)
   where (a,b,c,d) = un4 w
 
