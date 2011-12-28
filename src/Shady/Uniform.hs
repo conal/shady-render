@@ -22,7 +22,8 @@ import Control.Monad.State
 import Graphics.Rendering.OpenGL (GLint,GLfloat,GLenum)
 import Graphics.Glew
 
-import TypeUnary.Vec hiding (get)
+import TypeUnary.Nat (Nat(..))
+import TypeUnary.Vec (Vec,Vec1,Vec2,Vec3,Vec4,un1,un2,un3,un4)
 
 import Shady.Misc (Sink,(>+>))
 import Shady.Language.Type (Type(..),VectorT(..),ScalarT(..),Sampler(..))
