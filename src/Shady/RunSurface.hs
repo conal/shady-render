@@ -68,8 +68,8 @@ compileScene :: (FromE u', u ~ ExpT u', HasType u, HasExpr u) =>
 compileScene size eyePos@(ex,ey,ez) fs =
   do start <- shadyInit "Transmission from the Council of All Worlds"
      setupMatrices eyePos
-     setI <- mkIndices indices
-     sinkUs <- mapM (compileSurf size vertices eyePosE setI) fs
+     setIdxs <- mkIndices indices
+     sinkUs <- mapM (compileSurf size vertices eyePosE setIdxs) fs
      return (start, mconcat sinkUs)
  where
    eyePosE :: EyePosE
