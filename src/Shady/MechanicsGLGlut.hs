@@ -14,6 +14,8 @@
 
 module Shady.MechanicsGLGlut (shadyInit) where
 
+import Prelude hiding (catch)
+import Control.Exception (SomeException(..), catch)
 
 import Graphics.Rendering.OpenGL hiding (Shader,Program,Index,Sink)
 
@@ -62,8 +64,8 @@ shadyInit title =
      -- get glVersion >>= putStr . (++ ", ")
      -- get shadingLanguageVersion >>= putStrLn 
      displayCallback $= return ()   -- real update via timer.
-     catch (actionOnWindowClose $= MainLoopReturns)
-           (const (return ()))
+     catch (actionOnWindowClose $= MainLoopReturns) 
+           (\ (SomeException _) -> return ())
      putStrLn "finished shadyInit"
      return $ timedDisplay . display
 
