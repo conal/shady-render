@@ -71,8 +71,7 @@ vsink _ v = error ("vsink: non-vector variable " ++ show v)
 -- TODO: separate sinking from using
 
 useVar :: BufferObject -> GlLoc' -> VectorT n a -> IO ()
-useVar vbo loc (VectorT n a) =
-  useVBO (fromIntegral (natToZ n)) (sType a) loc vbo
+useVar vbo loc (VectorT n a) = useVBO (natToZ n) (sType a) loc vbo
 
 
 {--------------------------------------------------------------------
@@ -110,4 +109,4 @@ vsink' _ v = error ("vsink: non-vector variable " ++ show v)
 
 
 usingVar :: VectorT n a -> GlLoc' -> BufferObject -> Unop (IO c)
-usingVar (VectorT n a) = usingVBO (fromIntegral (natToZ n)) (sType a)
+usingVar (VectorT n a) = usingVBO (natToZ n) (sType a)
