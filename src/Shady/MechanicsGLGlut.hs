@@ -14,7 +14,7 @@
 
 module Shady.MechanicsGLGlut (shadyInit) where
 
-import Prelude hiding (catch)
+import Prelude
 import Control.Exception (SomeException(..), catch)
 
 import Graphics.Rendering.OpenGL hiding (Shader,Program,Index,Sink)
